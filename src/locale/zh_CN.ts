@@ -47,7 +47,7 @@ const zh_CN: GeoStylerLocale = {
   BulkEditModals: {
     colorLabel: '选择颜色',
     radiusLabel: '选择半径',
-    opacityLabel: '选择不透明度',
+    opacityLabel: '选择透明度(%)',
     symbolLabel: '选择符号',
     imageFieldLabel: '来源',
     imageFieldTooltipLabel: '打开图库'
@@ -55,7 +55,7 @@ const zh_CN: GeoStylerLocale = {
   BulkEditor: {
     colorLabel: '选择颜色',
     radiusLabel: '选择半径',
-    opacityLabel: '选择不透明度',
+    opacityLabel: '选择透明度(%)',
     symbolLabel: '选择符号',
     imageFieldLabel: '来源'
   },
@@ -77,7 +77,7 @@ const zh_CN: GeoStylerLocale = {
   },
   Style: {
     addRuleBtnText: '添加规则',
-    cloneRulesBtnText: '克隆规则',
+    cloneRulesBtnText: '复制规则',
     removeRulesBtnText: '移除规则',
     nameFieldLabel: '名称',
     nameFieldPlaceholder: '输入名称',
@@ -85,7 +85,7 @@ const zh_CN: GeoStylerLocale = {
     titleFieldPlaceholder: '输入标题',
     colorLabel: '选择颜色',
     radiusLabel: '选择半径',
-    opacityLabel: '选择不透明度',
+    opacityLabel: '选择透明度(%)',
     symbolLabel: '选择符号',
     multiEditLabel: '同时编辑',
     ruleGeneratorWindowBtnText: '分类'
@@ -143,20 +143,20 @@ const zh_CN: GeoStylerLocale = {
   },
   WellKnownNameEditor: {
     fillColorLabel: '填充-颜色',
-    fillOpacityLabel: '填充-不透明度',
+    fillOpacityLabel: '填充-透明度(%)',
     offsetXLabel: 'X 偏移',
     offsetYLabel: 'Y 偏移',
-    opacityLabel: '不透明度',
+    opacityLabel: '透明度(%)',
     radiusLabel: '半径',
     rotateLabel: '旋转',
     strokeColorLabel: '描边-颜色',
-    strokeOpacityLabel: '描边-不透明度',
+    strokeOpacityLabel: '描边-透明度(%)',
     strokeWidthLabel: '描边-宽度',
   },
   FillEditor: {
-    fillOpacityLabel: '填充-不透明度',
-    outlineOpacityLabel: '描边-不透明度',
-    opacityLabel: '不透明度',
+    fillOpacityLabel: '填充-透明度(%)',
+    outlineOpacityLabel: '描边-透明度(%)',
+    opacityLabel: '透明度(%)',
     fillColorLabel: '填充-颜色',
     outlineColorLabel: '轮廓-颜色',
     outlineWidthLabel: '轮廓-宽度',
@@ -166,12 +166,12 @@ const zh_CN: GeoStylerLocale = {
   },
   IconEditor: {
     iconTooltipLabel: '打开图库',
-    iconSpriteTooltipLabel: '使用精灵',
+    iconSpriteTooltipLabel: '使用定位',
     imageLabel: '来源',
     imagePlaceholder: '图标URL',
     offsetXLabel: 'X 偏移',
     offsetYLabel: 'Y 偏移',
-    opacityLabel: '不透明度',
+    opacityLabel: '透明度(%)',
     rotateLabel: '旋转',
     sizeLabel: '尺寸',
     visibilityLabel: '可见性'
@@ -183,7 +183,7 @@ const zh_CN: GeoStylerLocale = {
   LineEditor: {
     colorLabel: '颜色',
     widthLabel: '宽度',
-    opacityLabel: '不透明度',
+    opacityLabel: '透明度(%)',
     dashLabel: '虚线样式',
     perpendicularOffsetLabel: '垂直偏移',
     dashOffsetLabel: '偏移',
@@ -195,8 +195,8 @@ const zh_CN: GeoStylerLocale = {
   },
   TextEditor: {
     fontLabel: '字体',
-    templateFieldLabel: '模板',
-    opacityLabel: '不透明度',
+    templateFieldLabel: '标注表达式',
+    opacityLabel: '透明度(%)',
     colorLabel: '颜色',
     sizeLabel: '大小',
     offsetXLabel: 'X 偏移',
@@ -210,7 +210,7 @@ const zh_CN: GeoStylerLocale = {
   },
   PropTextEditor: {
     propFieldLabel: '字段',
-    opacityLabel: '不透明度',
+    opacityLabel: '透明度(%)',
     fontLabel: '字体',
     colorLabel: '颜色',
     sizeLabel: '大小',
@@ -222,7 +222,7 @@ const zh_CN: GeoStylerLocale = {
     haloWidthLabel: '光晕宽度'
   },
   RasterEditor: {
-    opacityLabel: '不透明度',
+    opacityLabel: '透明度(%)',
     hueRotateLabel: '色调旋转',
     brightnessMinLabel: '最小亮度',
     brightnessMaxLabel: '最大亮度',
@@ -231,7 +231,7 @@ const zh_CN: GeoStylerLocale = {
     fadeDurationLabel: '淡入淡出时间',
     resamplingLabel: '重采样',
     contrastEnhancementLabel: '对比增强',
-    gammaValueLabel: 'Gamma',
+    gammaValueLabel: '伽马值',
     colorMapLabel: '颜色映射',
     symbolizerLabel: '符号化',
     channelSelectionLabel: '通道选择',
@@ -257,7 +257,7 @@ const zh_CN: GeoStylerLocale = {
     colorLabel: '颜色',
     quantityLabel: '像素值',
     labelLabel: '图例',
-    opacityLabel: '不透明度'
+    opacityLabel: '透明度(%)'
   },
   Preview: {
     openEditorText: '符号编辑',
@@ -308,12 +308,12 @@ const zh_CN: GeoStylerLocale = {
     colorLabel: '颜色',
     labelLabel: '图例',
     quantityLabel: '数值',
-    opacityLabel: '不透明度'
+    opacityLabel: '透明度(%)'
   },
   ChannelField: {
     sourceChannelNameLabel: '通道名',
     contrastEnhancementTypeLabel: '对比增强',
-    gammaValueLabel: 'Gamma'
+    gammaValueLabel: '伽马值'
   },
   ColorMapTypeField: {
     rampMapTypeLabel: '渐变',
@@ -321,7 +321,7 @@ const zh_CN: GeoStylerLocale = {
     valuesMapTypeLabel: '唯一值'
   },
   SymbolizerEditorWindow: {
-    symbolizersEditor: '符号编辑器'
+    symbolizersEditor: '样式编辑器'
   },
   FilterOverview: {
     filterTitle: '过滤器'
@@ -384,12 +384,12 @@ const zh_CN: GeoStylerLocale = {
     colorRampPlaceholder: '选择……',
     colorRampMinClassesWarningPre: '色带需要至少',
     colorRampMinClassesWarningPost: '类',
-    symbolizer: 'Symbolizer',
+    symbolizer: '符号化',
     classification: '分类方法',
     classificationPlaceholder: '选择……',
     equalInterval: '相等间隔',
     preview: '颜色预览',
-    numberOfRulesViaKmeans: '……被 k-Means 分类影响。',
+    numberOfRulesViaKmeans: '……被 k-均值 分类影响。',
     allDistinctValues: '使用所有不同的值'
   },
   ColorRampCombo: {
@@ -402,7 +402,7 @@ const zh_CN: GeoStylerLocale = {
     equalInterval: '等值间隔',
     quantile: '分位数',
     logarithmic: '对数',
-    kmeans: 'k-Means'
+    kmeans: 'k-均值'
   },
   RuleGeneratorWindow: {
     ruleGenerator: '分类'
@@ -445,8 +445,8 @@ const zh_CN: GeoStylerLocale = {
     placeholder: '… 选择GeoStylerFunction'
   },
   VisibilityField: {
-    on: 'TODO(zh_CN):on',
-    off: 'TODO(zh_CN):off',
+    on: '显示',
+    off: '隐藏',
   },
   ...antd_zh_CN
 };

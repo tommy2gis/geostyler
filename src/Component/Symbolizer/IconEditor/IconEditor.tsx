@@ -203,7 +203,28 @@ export const IconEditor: React.FC<IconEditorProps> = (props) => {
             <ImageField
               value={imageSrc as string}
               onChange={onImageSrcChange}
-              iconLibraries={iconLibraries}
+              iconLibraries={iconLibraries||[{
+                name: 'foo',
+                icons: [{
+                  src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Parking_icon.svg/128px-Parking_icon.svg.png',
+                  caption: 'Parking'
+                }, {
+                  src: 'https://raw.githubusercontent.com/geostyler/geostyler/main/public/logo.svg',
+                  caption: 'GeoStyler Logo'
+                }]
+              }, {
+                name: 'bar',
+                icons: [{
+                  src: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/RWB-RWBA_Autobahn.svg',
+                  caption: 'Highway1'
+                },{
+                  src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Parking_icon.svg/128px-Parking_icon.svg.png',
+                  caption: 'Parking1'
+                }, {
+                  src: 'https://raw.githubusercontent.com/geostyler/geostyler/main/public/logo.svg',
+                  caption: 'GeoStyler Logo1'
+                }]
+              }]}
               tooltipLabel={locale.iconTooltipLabel}
               spriteTooltipLabel={locale.iconSpriteTooltipLabel}
               disableSprite={imageField?.disableSprite}

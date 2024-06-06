@@ -30,8 +30,13 @@ import React from 'react';
 
 import {
   Mentions,
-  Form
+  Form,
+  Space,
+  Popover
 } from 'antd';
+
+import { QuestionCircleOutlined } from '@ant-design/icons';
+
 
 import _cloneDeep from 'lodash/cloneDeep';
 import _isEqual from 'lodash/isEqual';
@@ -240,178 +245,161 @@ export const TextEditor: React.FC<TextEditorProps> = (props) => {
   const itemConfig = getFormItemConfig();
 
   return (
-    <div className="gs-text-symbolizer-editor" >
-      {
-        visibilityField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.visibilityLabel}
-          >
-            <VisibilityField
-              visibility={visibility}
-              onChange={onVisibilityChange}
-            />
-          </Form.Item>
-        )
-      }
-      {
-        templateField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.templateFieldLabel}
-            {...getFormItemSupportProps('label')}
-          >
-            <Mentions
-              className="editor-field"
-              value={symbolizer.label as string || ''}
-              defaultValue={templateField?.default}
-              onChange={onLabelChange}
-              placeholder={locale.templateFieldLabel}
-              prefix="{{"
-              notFoundContent={locale.attributeNotFound}
-              options={properties.map(p => ({
-                key: p,
-                value: `${p}}}`,
-                label: p
-              }))}
-            />
-          </Form.Item>
-        )
-      }
-      {
-        colorField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.colorLabel}
-            {...getFormItemSupportProps('color')}
-          >
-            <ColorField
-              value={color as string}
-              defaultValue={colorField?.default}
-              onChange={onColorChange}
-            />
-          </Form.Item>
-        )
-      }
-      {
-        fontField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.fontLabel}
-            {...getFormItemSupportProps('font')}
-          >
-            <FontPicker
-              font={font as string[]}
-              onChange={onFontChange}
-            />
-          </Form.Item>
-        )
-      }
-      {
-        opacityField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.opacityLabel}
-            {...getFormItemSupportProps('opacity')}
-          >
-            <OpacityField
-              value={opacity}
-              defaultValue={opacityField?.default as number}
-              onChange={onOpacityChange}
-            />
-          </Form.Item>
-        )
-      }
-      {
-        sizeField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.sizeLabel}
-            {...getFormItemSupportProps('size')}
-          >
-            <WidthField
-              value={size}
-              defaultValue={sizeField?.default as number}
-              onChange={onSizeChange}
-            />
-          </Form.Item>
-        )
-      }
-      {
-        offsetXField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.offsetXLabel}
-            {...getFormItemSupportProps('offset')}
-          >
-            <OffsetField
-              offset={offsetX}
-              defaultValue={offsetXField?.default as number}
-              onChange={onOffsetXChange}
-            />
-          </Form.Item>
-        )
-      }
-      {
-        offsetYField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.offsetYLabel}
-            {...getFormItemSupportProps('offset')}
-          >
-            <OffsetField
-              offset={offsetY}
-              defaultValue={offsetYField?.default as number}
-              onChange={onOffsetYChange}
-            />
-          </Form.Item>
-        )
-      }
-      {
-        rotateField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.rotateLabel}
-            {...getFormItemSupportProps('rotate')}
-          >
-            <RotateField
-              rotate={rotate as number}
-              defaultValue={rotateField?.default as number}
-              onChange={onRotateChange}
-            />
-          </Form.Item>
-        )
-      }
-      {
-        haloColorField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.haloColorLabel}
-            {...getFormItemSupportProps('haloColor')}
-          >
-            <ColorField
-              value={haloColor as string}
-              defaultValue={haloColorField?.default}
-              onChange={onHaloColorChange}
-            />
-          </Form.Item>
-        )
-      }
-      {
-        haloWidthField?.visibility === false ? null : (
-          <Form.Item
-            {...itemConfig}
-            label={locale.haloWidthLabel}
-            {...getFormItemSupportProps('haloWidth')}
-          >
-            <WidthField
-              value={haloWidth}
-              defaultValue={haloWidthField?.default as number}
-              onChange={onHaloWidthChange}
-            />
-          </Form.Item>
-        )
-      }
+    <div className="gs-text-symbolizer-editor">
+      {visibilityField?.visibility === false ? null : (
+        <Form.Item {...itemConfig} label={locale.visibilityLabel}>
+          <VisibilityField
+            visibility={visibility}
+            onChange={onVisibilityChange}
+          />
+        </Form.Item>
+      )}
+      {templateField?.visibility === false ? null : (
+        <Form.Item
+          {...itemConfig}
+          label={
+            <Space>
+              {locale.templateFieldLabel}
+              <Popover 
+              placement="right"
+              overlayStyle={{width:200}}
+              content="示例: {{字段1}}-{{字段2}}"
+            >
+            <QuestionCircleOutlined />
+          </Popover >
+            </Space>
+          }
+          {...getFormItemSupportProps("label")}
+        >
+          <Mentions
+            className="editor-field"
+            value={(symbolizer.label as string) || ""}
+            defaultValue={templateField?.default}
+            onChange={onLabelChange}
+            placeholder={locale.templateFieldLabel}
+            prefix="{{"
+            notFoundContent={locale.attributeNotFound}
+            options={properties.map((p) => ({
+              key: p,
+              value: `${p}}}`,
+              label: p,
+            }))}
+          />
+        </Form.Item>
+      )}
+      {colorField?.visibility === false ? null : (
+        <Form.Item
+          {...itemConfig}
+          label={locale.colorLabel}
+          {...getFormItemSupportProps("color")}
+        >
+          <ColorField
+            value={color as string}
+            defaultValue={colorField?.default}
+            onChange={onColorChange}
+          />
+        </Form.Item>
+      )}
+      {fontField?.visibility === false ? null : (
+        <Form.Item
+          {...itemConfig}
+          label={locale.fontLabel}
+          {...getFormItemSupportProps("font")}
+        >
+          <FontPicker font={font as string[]} onChange={onFontChange} />
+        </Form.Item>
+      )}
+      {opacityField?.visibility === false ? null : (
+        <Form.Item
+          {...itemConfig}
+          label={locale.opacityLabel}
+          {...getFormItemSupportProps("opacity")}
+        >
+          <OpacityField
+            value={opacity}
+            defaultValue={opacityField?.default as number}
+            onChange={onOpacityChange}
+          />
+        </Form.Item>
+      )}
+      {sizeField?.visibility === false ? null : (
+        <Form.Item
+          {...itemConfig}
+          label={locale.sizeLabel}
+          {...getFormItemSupportProps("size")}
+        >
+          <WidthField
+            value={size}
+            defaultValue={sizeField?.default as number}
+            onChange={onSizeChange}
+          />
+        </Form.Item>
+      )}
+      {offsetXField?.visibility === false ? null : (
+        <Form.Item
+          {...itemConfig}
+          label={locale.offsetXLabel}
+          {...getFormItemSupportProps("offset")}
+        >
+          <OffsetField
+            offset={offsetX}
+            defaultValue={offsetXField?.default as number}
+            onChange={onOffsetXChange}
+          />
+        </Form.Item>
+      )}
+      {offsetYField?.visibility === false ? null : (
+        <Form.Item
+          {...itemConfig}
+          label={locale.offsetYLabel}
+          {...getFormItemSupportProps("offset")}
+        >
+          <OffsetField
+            offset={offsetY}
+            defaultValue={offsetYField?.default as number}
+            onChange={onOffsetYChange}
+          />
+        </Form.Item>
+      )}
+      {rotateField?.visibility === false ? null : (
+        <Form.Item
+          {...itemConfig}
+          label={locale.rotateLabel}
+          {...getFormItemSupportProps("rotate")}
+        >
+          <RotateField
+            rotate={rotate as number}
+            defaultValue={rotateField?.default as number}
+            onChange={onRotateChange}
+          />
+        </Form.Item>
+      )}
+      {haloColorField?.visibility === false ? null : (
+        <Form.Item
+          {...itemConfig}
+          label={locale.haloColorLabel}
+          {...getFormItemSupportProps("haloColor")}
+        >
+          <ColorField
+            value={haloColor as string}
+            defaultValue={haloColorField?.default}
+            onChange={onHaloColorChange}
+          />
+        </Form.Item>
+      )}
+      {haloWidthField?.visibility === false ? null : (
+        <Form.Item
+          {...itemConfig}
+          label={locale.haloWidthLabel}
+          {...getFormItemSupportProps("haloWidth")}
+        >
+          <WidthField
+            value={haloWidth}
+            defaultValue={haloWidthField?.default as number}
+            onChange={onHaloWidthChange}
+          />
+        </Form.Item>
+      )}
     </div>
   );
 };

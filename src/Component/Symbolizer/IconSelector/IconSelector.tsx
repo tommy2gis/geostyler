@@ -129,6 +129,8 @@ export const IconSelector: React.FC<IconSelectorProps & Pick<IconEditorComposabl
         key={index.toString()}
         className={gridClassName}
         onClick={() => {
+          const selection = getSelectedIconFromSrc(icon.src, iconLibraries);
+          setSelectedIcon(selection);
           if (onIconSelect) {
             onIconSelect(icon.src);
           }

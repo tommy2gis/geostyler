@@ -1,3 +1,12 @@
+/*
+ * @Author: shitao
+ * @Date: 2024-03-29 15:06:51
+ * @LastEditTime: 2024-03-29 16:57:01
+ * @LastEditors: shitao
+ * @Description: 
+ * @FilePath: \geostyler\src\Component\Symbolizer\Field\ColorMapTypeField\ColorMapTypeField.spec.tsx
+ * 无锡四维时空信息科技有限公司
+ */
 /* Released under the BSD 2-Clause License
  *
  * Copyright © 2018-present, terrestris GmbH & Co. KG and GeoStyler contributors
@@ -29,7 +38,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { ColorMapTypeField } from './ColorMapTypeField';
-import en_US from '../../../../locale/en_US';
+import zh_CN from '../../../../locale/zh_CN';
 
 describe('ColorMapTypeField', () => {
 
@@ -58,9 +67,9 @@ describe('ColorMapTypeField', () => {
     it('calls onChange', async() => {
       const onChangeMock = jest.fn();
       const field = render(<ColorMapTypeField onChange={onChangeMock} />);
-      const rampInput = await field.findByLabelText(en_US.ColorMapTypeField.rampMapTypeLabel);
-      const intervalsInput = await field.findByLabelText(en_US.ColorMapTypeField.intervalsMapTypeLabel);
-      const valuesInput = await field.findByLabelText(en_US.ColorMapTypeField.valuesMapTypeLabel);
+      const rampInput = await field.findByLabelText(zh_CN.ColorMapTypeField.rampMapTypeLabel);
+      const intervalsInput = await field.findByLabelText(zh_CN.ColorMapTypeField.intervalsMapTypeLabel);
+      const valuesInput = await field.findByLabelText(zh_CN.ColorMapTypeField.valuesMapTypeLabel);
       fireEvent.click(intervalsInput);
       expect(onChangeMock).toHaveBeenCalledWith('intervals');
       fireEvent.click(valuesInput);

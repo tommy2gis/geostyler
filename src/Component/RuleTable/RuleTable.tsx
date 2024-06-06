@@ -41,6 +41,8 @@ import {
   InputNumber,
   Popover,
   Tooltip,
+  Space,
+  Descriptions
 } from 'antd';
 
 import {
@@ -57,7 +59,7 @@ import { ColumnProps, TableProps } from 'antd/lib/table';
 import FilterUtil, { CountResult } from '../../Util/FilterUtil';
 import DataUtil from '../../Util/DataUtil';
 import { RuleReorderButtons } from './RuleReorderButtons/RuleReorderButtons';
-import { BgColorsOutlined, BlockOutlined, EditOutlined } from '@ant-design/icons';
+import { BgColorsOutlined, BlockOutlined, EditOutlined,QuestionCircleOutlined } from '@ant-design/icons';
 import { Renderer } from '../Renderer/Renderer/Renderer';
 import {
   useGeoStylerComposition,
@@ -374,9 +376,53 @@ export const RuleTable: React.FC<RuleTableProps> = (props) => {
 
   if (!(minScaleField?.visibility === false)) {
     columns.push({
-      title: locale.minScaleColumnTitle,
-      dataIndex: 'minScale',
-      render: minScaleRenderer
+      title: (
+        <Space>
+          {locale.minScaleColumnTitle}
+          <Popover 
+            placement="right"
+            overlayStyle={{width:200}}
+            content={
+              <Descriptions
+                 size='small'
+                column={1}
+                title="缩放级别"
+                items={[
+                  {
+                    key: "1",
+                    label: "级别1",
+                    children: "1:200000",
+                  },
+                  {
+                    key: "3",
+                    label: "级别3",
+                    children: "1:100000",
+                  },
+                  {
+                    key: "6",
+                    label: "级别6",
+                    children: "1:50000",
+                  },
+                  {
+                    key: "10",
+                    label: "级别10",
+                    children: "1:25000",
+                  },
+                  {
+                    key: "18",
+                    label: "级别18",
+                    children: "1:6000",
+                  }
+                ]}
+              />
+            }
+          >
+            <QuestionCircleOutlined />
+          </Popover >
+        </Space>
+      ),
+      dataIndex: "minScale",
+      render: minScaleRenderer,
     });
   }
 

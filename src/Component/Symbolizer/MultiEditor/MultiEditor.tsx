@@ -42,6 +42,7 @@ import { Editor } from '../Editor/Editor';
 
 import SymbolizerUtil from '../../../Util/SymbolizerUtil';
 import { IconLibrary } from '../IconSelector/IconSelector';
+import { useGeoStylerLocale } from '../../../context/GeoStylerContext/GeoStylerContext';
 
 import _isEqual from 'lodash/isEqual';
 
@@ -104,11 +105,12 @@ export const MultiEditor: React.FC<MultiEditorProps> = ({
   };
 
   const tabs: Tab[] = symbolizers.map((symbolizer: Symbolizer, idx: number) => {
+    const locale = useGeoStylerLocale('KindField');
     return {
       className: 'gs-symbolizer-multi-editor-tab',
       key: idx.toString(),
       closable: true,
-      label: `${symbolizer.kind} (${idx})`,
+      label: `${locale.symbolizerKinds?.[symbolizer.kind] || symbolizer.kind} (${idx})`,
       children: (
         <Editor
           symbolizer={symbolizer}

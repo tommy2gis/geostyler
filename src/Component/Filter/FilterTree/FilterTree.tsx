@@ -202,6 +202,7 @@ export const FilterTree: React.FC<FilterTreeProps & Partial<TreeProps>> = ({
       }],
     });
     items.push({
+      label: locale.removeFilterLabel,
       key: 'remove',
       icon: <MinusOutlined />
     });

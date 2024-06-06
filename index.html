@@ -1,5 +1,15 @@
+<!--
+ * @Author: shitao
+ * @Date: 2024-03-29 15:06:51
+ * @LastEditTime: 2024-04-03 11:39:17
+ * @LastEditors: shitao
+ * @Description: 
+ * @FilePath: \geostyler\index.html
+ * 无锡四维时空信息科技有限公司
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +17,16 @@
   <title>Document</title>
   <script src="./src/index.ts" crossorigin type="module"></script>
   <link rel="stylesheet" src="./dist/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/antd@4.24.10/dist/antd.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/antd@4.24.10/dist/antd.min.css" />
   <style>
     div#root {
       padding: 20px;
     }
   </style>
 </head>
+
 <body>
-  <div id="root" >
+  <div id="root">
     <div id="geostyler-ui"></div>
     <div style="display: flex;">
       <div id="preview" style="flex: 1;"></div>
@@ -49,13 +60,57 @@
     };
     const renderPreview = (style) => {
       const gsPreview = React.createElement(PreviewMap, {
-          style: style,
-          mapHeight: 300
-        });
+        style: style,
+        mapHeight: 300
+      });
       preview.render(gsPreview);
     };
     const geostyler = React.createElement(Style, {
       style: defaultStyle,
+      data: {
+        exampleFeatures: {
+          type: 'FeatureCollection',
+          features: [
+            {
+              type: 'Feature',
+              properties: {
+                foo: '1'
+              },
+              geometry: {
+                type: 'Point',
+                coordinates: [7, 50]
+              }
+            },
+            {
+              type: 'Feature',
+              properties: {
+                foo: '2'
+              },
+              geometry: {
+                type: 'Point',
+                coordinates: [6, 50]
+              }
+            }
+          ]
+        }
+      },
+      iconLibraries: [{
+        name: 'foo',
+        icons: [{
+          src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Parking_icon.svg/128px-Parking_icon.svg.png',
+          caption: 'Parking'
+        }, {
+          src: 'https://raw.githubusercontent.com/geostyler/geostyler/main/public/logo.svg',
+          caption: 'GeoStyler Logo'
+        }]
+      }, {
+        name: 'bar',
+        icons: [{
+          src: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/RWB-RWBA_Autobahn.svg',
+          caption: 'Highway'
+        }]
+      }],
+      disableClassification: false,
       onStyleChange: (gsStyle) => {
         document.getElementById('textual_style').value = JSON.stringify(gsStyle, null, 2);
         renderPreview(gsStyle);
@@ -65,4 +120,5 @@
     geostylerNode.render(geostyler);
   </script>
 </body>
+
 </html>

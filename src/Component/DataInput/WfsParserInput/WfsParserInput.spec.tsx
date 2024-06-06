@@ -30,9 +30,9 @@ import React from 'react';
 import { ReadParams } from 'geostyler-wfs-parser';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { WfsParserInput } from './WfsParserInput';
-import en_US from '../../../locale/en_US';
+import zh_CN from '../../../locale/zh_CN';
 
-const locale = en_US.WfsParserInput;
+const locale = zh_CN.WfsParserInput;
 
 describe('WfsParserInput', () => {
 

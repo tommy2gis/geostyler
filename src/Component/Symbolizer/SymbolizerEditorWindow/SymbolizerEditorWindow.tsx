@@ -1,3 +1,12 @@
+/*
+ * @Author: shitao
+ * @Date: 2024-03-29 15:06:51
+ * @LastEditTime: 2024-04-02 09:05:53
+ * @LastEditors: shitao
+ * @Description: 
+ * @FilePath: \geostyler\src\Component\Symbolizer\SymbolizerEditorWindow\SymbolizerEditorWindow.tsx
+ * 无锡四维时空信息科技有限公司
+ */
 /* Released under the BSD 2-Clause License
  *
  * Copyright © 2018-present, terrestris GmbH & Co. KG and GeoStyler contributors
@@ -34,14 +43,15 @@ import { MultiEditor } from '../MultiEditor/MultiEditor';
 import { IconLibrary } from '../IconSelector/IconSelector';
 
 import './SymbolizerEditorWindow.less';
-import { Modal, ModalProps } from 'antd';
+import { Drawer,DrawerProps} from 'antd';
+
 
 import _isEqual from 'lodash/isEqual';
 import { useGeoStylerLocale } from '../../../context/GeoStylerContext/GeoStylerContext';
 
 
 // non default props
-export interface SymbolizerEditorWindowProps extends Partial<ModalProps> {
+export interface SymbolizerEditorWindowProps extends Partial<DrawerProps> {
   symbolizers: Symbolizer[];
   onClose?: () => void;
   onSymbolizersChange?: (symbolizers: Symbolizer[]) => void;
@@ -63,13 +73,14 @@ export const SymbolizerEditorWindow: React.FC<SymbolizerEditorWindowProps> = ({
   const locale = useGeoStylerLocale('SymbolizerEditorWindow');
 
   return (
-    <Modal
+    <Drawer
       className="symbolizer-editor-modal"
+      rootClassName='symbolizer-editor-drawer'
       title={locale.symbolizersEditor}
-      onCancel={onClose}
-      width={800}
+      onClose={onClose}
+      width={500}
       footer={false}
-      centered={true}
+      mask={false}
       {...passThroughProps}
     >
       <MultiEditor
@@ -78,6 +89,6 @@ export const SymbolizerEditorWindow: React.FC<SymbolizerEditorWindowProps> = ({
         iconLibraries={iconLibraries}
         editorProps={{ colorRamps }}
       />
-    </Modal>
+    </Drawer>
   );
 };

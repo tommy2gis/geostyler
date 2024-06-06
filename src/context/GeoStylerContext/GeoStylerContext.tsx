@@ -21,7 +21,7 @@ import { ChannelFieldComposableProps } from '../../Component/Symbolizer/Field/Ch
 import { RuleGeneratorComposableProps } from '../../Component/RuleGenerator/RuleGenerator';
 import { StyleComposableProps } from '../../Component/Style/Style';
 import UnsupportedPropertiesUtil, { SymbolizerName } from '../../Util/UnsupportedPropertiesUtil';
-import en_US from '../../locale/en_US';
+import zh_CN from '../../locale/zh_CN';
 import { Data as GeoStylerData } from 'geostyler-data';
 import { SLDRendererComposableProps } from '../../Component/Renderer/SLDRenderer/SLDRenderer';
 
@@ -84,7 +84,7 @@ export const useGeoStylerComposition = <T extends keyof CompositionContext>(
 
 export const useGeoStylerLocale = <T extends keyof GeoStylerLocale>(key: T): GeoStylerLocale[T] => {
   const ctx = useContext(GeoStylerContext);
-  return ctx.locale ? ctx.locale[key] : en_US[key];
+  return ctx.locale ? ctx.locale[key] : zh_CN[key];
 };
 
 export const useGeoStylerData = (): GeoStylerData => {

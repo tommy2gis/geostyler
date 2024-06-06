@@ -375,7 +375,7 @@ export const Style: React.FC<StyleProps> = (props) => {
 
   return (
     <div className="gs-style" >
-      <div className="gs-style-name-classification-row">
+      <div className="gs-style-name-classification-row" >
         <Form.Item
           label={locale.nameFieldLabel}
         >

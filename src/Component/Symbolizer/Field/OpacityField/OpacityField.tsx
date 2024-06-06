@@ -1,3 +1,12 @@
+/*
+ * @Author: shitao
+ * @Date: 2024-03-29 15:06:51
+ * @LastEditTime: 2024-04-07 11:58:28
+ * @LastEditors: shitao
+ * @Description: 
+ * @FilePath: \geostyler\src\Component\Symbolizer\Field\OpacityField\OpacityField.tsx
+ * 无锡四维时空信息科技有限公司
+ */
 /* Released under the BSD 2-Clause License
  *
  * Copyright © 2018-present, terrestris GmbH & Co. KG and GeoStyler contributors
@@ -48,9 +57,13 @@ export const OpacityField: React.FC<OpacityFieldProps> = ({
   className,
   ...inputNumberProps
 }) => {
-
   function onCancel() {
     onChange(inputNumberProps.defaultValue ? Number(inputNumberProps.defaultValue) : undefined);
+  }
+
+  const onInputChange=(value:Expression<number>)=>{
+    const opacity=parseFloat((1-Number(value)/100).toFixed(2));
+    onChange(opacity)
   }
 
   let finalClassName = 'editor-field opacity-field';
@@ -61,14 +74,14 @@ export const OpacityField: React.FC<OpacityFieldProps> = ({
   return (
     <NumberExpressionInput
       className={finalClassName}
-      value={value}
-      onChange={onChange}
+      value={value?(Math.round(100-Number(value)*100)):undefined}
+      onChange={onInputChange}
       onCancel={onCancel}
       inputProps={{
         ...inputNumberProps,
         min: 0,
-        max: 1,
-        step: 1
+        max: 100,
+        step: 10
       }}
     />
   );

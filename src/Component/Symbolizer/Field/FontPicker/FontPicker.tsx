@@ -1,3 +1,12 @@
+/*
+ * @Author: shitao
+ * @Date: 2024-03-29 15:06:51
+ * @LastEditTime: 2024-04-07 13:40:20
+ * @LastEditors: shitao
+ * @Description: 
+ * @FilePath: \geostyler\src\Component\Symbolizer\Field\FontPicker\FontPicker.tsx
+ * 无锡四维时空信息科技有限公司
+ */
 /* Released under the BSD 2-Clause License
  *
  * Copyright © 2018-present, terrestris GmbH & Co. KG and GeoStyler contributors
@@ -50,9 +59,9 @@ export const FontPicker: React.FC<FontPickerProps> = ({
   onChange,
   font,
   fontOptions = [
-    'Arial', 'Verdana', 'Sans-serif',
-    'Courier New', 'Lucida Console', 'Monospace',
-    'Times New Roman', 'Georgia', 'Serif'
+    '微软雅黑', '微软雅黑 Bold', '微软雅黑 Light',
+    '宋体', '新宋体', '仿宋',
+    '楷体', '黑体','monospace', 'fantasy', 'serif', 'sans-serif'
   ]
 }) => {
 

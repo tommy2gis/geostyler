@@ -232,7 +232,7 @@ export const LineEditor: React.FC<LineEditorProps> = (props) => {
   return (
     <div className="gs-line-symbolizer-editor" >
       <Collapse bordered={false} defaultActiveKey={['1']}>
-        <Panel header="General" key="1">
+        <Panel header="基础样式" key="1">
           {
             visibilityField?.visibility === false ? null : (
               <Form.Item
@@ -369,7 +369,7 @@ export const LineEditor: React.FC<LineEditorProps> = (props) => {
         </Panel>
         {
           graphicStrokeField?.visibility === false ? null : (
-            <Panel header="Graphic Stroke" key="2">
+            <Panel header="图形描边" key="2">
               <GraphicEditor
                 graphic={graphicStroke}
                 onGraphicChange={onGraphicStrokeChange}
@@ -381,7 +381,7 @@ export const LineEditor: React.FC<LineEditorProps> = (props) => {
         }
         {
           graphicFillField?.visibility === false ? null : (
-            <Panel header="Graphic Fill" key="3">
+            <Panel header="图形填充" key="3">
               <GraphicEditor
                 graphic={graphicFill}
                 onGraphicChange={onGraphicFillChange}

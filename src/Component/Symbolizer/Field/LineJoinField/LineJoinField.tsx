@@ -1,3 +1,12 @@
+/*
+ * @Author: shitao
+ * @Date: 2024-03-29 15:06:51
+ * @LastEditTime: 2024-04-02 15:05:59
+ * @LastEditors: shitao
+ * @Description: 
+ * @FilePath: \geostyler\src\Component\Symbolizer\Field\LineJoinField\LineJoinField.tsx
+ * 无锡四维时空信息科技有限公司
+ */
 /* Released under the BSD 2-Clause License
  *
  * Copyright © 2023-present, terrestris GmbH & Co. KG and GeoStyler contributors
@@ -54,10 +63,11 @@ export const LineJoinField: React.FC<LineJoinFieldProps & SelectProps> = ({
   ...selectProps
 }) => {
 
-  const options =  joinOptions.map(opt => ({
-    label: opt,
-    value: opt
-  }));
+  const options = [
+    { value: "butt", label: "对接(butt)" },
+    { value: "round", label: "圆角(round)" },
+    { value: "square", label: "方块(square)" },
+  ];
 
   function onCancel() {
     onChange(undefined);
