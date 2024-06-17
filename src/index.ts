@@ -143,3 +143,32 @@ export {
   GeoStylerLocale,
   GeoStylerContextInterface
 };
+
+import type { Crumb } from './Component/Breadcrumb/Breadcrumb';
+import {
+  useGeoStylerComposition,
+  useGeoStylerData,
+  useGeoStylerLocale
+} from './context/GeoStylerContext/GeoStylerContext';
+
+import FilterUtil from './Util/FilterUtil';
+import type { CountResult } from './Util/FilterUtil';
+import DataUtil from './Util/DataUtil';
+import CardViewUtil from './Util/CardViewUtil';
+import SymbolizerUtil from './Util/SymbolizerUtil';
+import { getFormItemConfig } from './Util/FormItemUtil';
+import { useDragDropSensors } from './hook/UseDragDropSensors';
+
+export {
+  Crumb,
+  useGeoStylerLocale,
+  useGeoStylerData,
+  useGeoStylerComposition,
+  CardViewUtil,
+  SymbolizerUtil,
+  getFormItemConfig,
+  FilterUtil,
+  CountResult,
+  DataUtil,
+  useDragDropSensors
+};

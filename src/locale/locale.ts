@@ -65,6 +65,17 @@ export default interface GeoStylerLocale {
     filterTitle: string;
     iconLibrariesTitle: string;
   };
+  ListStyle: {
+    nameFieldLabel: string;
+    nameFieldPlaceholder: string;
+    filterFieldLabel: string;
+    setRuleBtnText: string;
+    addRuleBtnText: string;
+    cloneRulesBtnText: string;
+    removeRulesBtnText: string;
+    ruleGeneratorWindowBtnText: string;
+    ruleSettingTitle: string;
+  };
   StyleOverview: {
     styleTitle: string;
   };

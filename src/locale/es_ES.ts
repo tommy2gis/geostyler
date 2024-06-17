@@ -448,6 +448,17 @@ const es_ES: GeoStylerLocale = {
     on: 'TODO(es_ES):on',
     off: 'TODO(es_ES):off',
   },
+  ListStyle: {
+    nameFieldLabel: 'Nombre',
+    nameFieldPlaceholder: 'Ingrese nombre',
+    filterFieldLabel: 'Filtros',
+    setRuleBtnText: 'Configuración',
+    addRuleBtnText: 'Añadir regla',
+    cloneRulesBtnText: 'Duplicar reglas',
+    removeRulesBtnText: 'Eliminar reglas',
+    ruleGeneratorWindowBtnText: 'Clasificación',
+    ruleSettingTitle: 'TODO(es_ES):RuleSetting'
+  },
   ...antd_es_ES
 };
 

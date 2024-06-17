@@ -448,6 +448,17 @@ const zh_CN: GeoStylerLocale = {
     on: '显示',
     off: '隐藏',
   },
+  ListStyle: {
+    nameFieldLabel: '名称',
+    nameFieldPlaceholder: '输入名称',
+    filterFieldLabel: '过滤器',
+    setRuleBtnText: '设置',
+    addRuleBtnText: '添加',
+    cloneRulesBtnText: '复制',
+    removeRulesBtnText: '删除',
+    ruleGeneratorWindowBtnText: '分类',
+    ruleSettingTitle: '规则设置'
+  },
   ...antd_zh_CN
 };
 

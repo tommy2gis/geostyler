@@ -138,8 +138,8 @@ const fr_FR: GeoStylerLocale = {
     readFeedback: 'Erreurs et avertissements lors de la lecture avec'
   },
   ParserFeedback: {
-    notSupported : 'n\'est pas supporté par l\'analyseur utilisé',
-    partiallySupported : 'n\'est que partiellement supporté par l\'analyseur utilisé'
+    notSupported: 'n\'est pas supporté par l\'analyseur utilisé',
+    partiallySupported: 'n\'est que partiellement supporté par l\'analyseur utilisé'
   },
   WellKnownNameEditor: {
     fillColorLabel: 'Couleur du remplissage',
@@ -447,6 +447,17 @@ const fr_FR: GeoStylerLocale = {
   VisibilityField: {
     on: 'TODO(fr_FR):on',
     off: 'TODO(fr_FR):off',
+  },
+  ListStyle: {
+    nameFieldLabel: 'Nom',
+    nameFieldPlaceholder: 'Saisir un nom',
+    filterFieldLabel: 'Filtres',
+    setRuleBtnText: 'Paramètres',
+    addRuleBtnText: 'Ajouter une règle',
+    cloneRulesBtnText: 'Dupliquer les règles',
+    removeRulesBtnText: 'Supprimer les règles',
+    ruleGeneratorWindowBtnText: 'Classification',
+    ruleSettingTitle: 'TODO(fr_FR):RuleSetting'
   },
   ...antd_fr_FR
 };

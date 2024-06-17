@@ -447,6 +447,17 @@ const hr_HR: GeoStylerLocale = {
     on: 'TODO(hr_HR):on',
     off: 'TODO(hr_HR):off',
   },
+  ListStyle: {
+    nameFieldLabel: 'Ime',
+    nameFieldPlaceholder: 'Unesite ime',
+    filterFieldLabel: 'filtras',
+    setRuleBtnText: 'įdiegti',
+    addRuleBtnText: 'Dodaj pravilo',
+    cloneRulesBtnText: 'Kopiraj pravilo',
+    removeRulesBtnText: 'Ukloni pravilo',
+    ruleGeneratorWindowBtnText: 'Klasifikacija',
+    ruleSettingTitle: 'TODO(hr_HR):RuleSetting'
+  },
   ...antd_hr_HR
 };
 export default hr_HR;

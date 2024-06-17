@@ -54,7 +54,7 @@ import SymbolizerUtil from '../../Util/SymbolizerUtil';
 import { RuleTable } from '../RuleTable/RuleTable';
 import { RuleGeneratorWindow } from '../RuleGenerator/RuleGeneratorWindow';
 import { CopyOutlined, MenuUnfoldOutlined, MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { ItemType } from 'antd/lib/menu/hooks/useItems';
+import { ItemType } from 'antd/lib/menu/interface';
 import {
   useGeoStylerComposition,
   useGeoStylerData,
@@ -388,13 +388,13 @@ export const Style: React.FC<StyleProps> = (props) => {
         {
           // TODO: Rule GeneratorWindow should only be available if data is VectorData
           !disableClassification &&
-            <Button
-              className="gs-style-rulegenerator"
-              onClick={showRuleGeneratorWindow}
-              disabled={!data}
-            >
-              {locale.ruleGeneratorWindowBtnText}
-            </Button>
+          <Button
+            className="gs-style-rulegenerator"
+            onClick={showRuleGeneratorWindow}
+            disabled={!data}
+          >
+            {locale.ruleGeneratorWindowBtnText}
+          </Button>
         }
       </div>
       <RuleGeneratorWindow
