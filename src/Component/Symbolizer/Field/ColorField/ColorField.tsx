@@ -54,6 +54,10 @@ export interface ColorFieldProps extends Omit<ColorPickerProps, 'onChange' | 'va
 /**
  * ColorField
  */
+/*
+ * 禁用透明度设置，sld不支持
+ * 颜色设置改成hex
+ */
 export const ColorField: React.FC<ColorFieldProps> = ({
   onChange = () => undefined,
   value,
@@ -63,12 +67,20 @@ export const ColorField: React.FC<ColorFieldProps> = ({
 
   const locale = useGeoStylerLocale('ColorField');
 
-  const onColorPickerChange = useCallback((_: any, hex: string) => {
+  const onColorPickerChange = useCallback((color: any, hex: string) => {
     // contains 0% opacity --> should only happen when clear is clicked
-    if (hex?.length === 9) {
+    let val = undefined;
+
+    try {
+      val = color?.toHexString();
+    } catch (e) {
+      console.warn('Failed to convert color to hex:', e);
+    }
+
+    if (val?.length === 9) {
       onChange(undefined);
     } else {
-      onChange(hex);
+      onChange(val);
     }
   }, [onChange]);
 
@@ -110,6 +122,7 @@ export const ColorField: React.FC<ColorFieldProps> = ({
     <span className="editor-field gs-color-field">
       <ColorPicker
         allowClear
+        disabledAlpha
         format='hex'
         {...passThroughProps}
         onChange={onColorPickerChange}
