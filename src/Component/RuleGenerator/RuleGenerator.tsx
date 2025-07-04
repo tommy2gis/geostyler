@@ -184,11 +184,13 @@ export const RuleGenerator: React.FC<RuleGeneratorProps> = (props) => {
       <Form.Item
         {...itemConfig}
         label={locale.levelOfMeasurement}
+        
       >
         <Radio.Group
           onChange={onLevelOfMeasurementChange}
           value={levelOfMeasurement}
           buttonStyle="solid"
+          disabled={!attributeName}
         >
           <Radio.Button
             value="nominal"
