@@ -68,7 +68,7 @@ export const OlRenderer: React.FC<OlRendererProps> = ({
   /** reference to the underlying OpenLayers map */
   const map = useRef<OlMap>();
   const layer = useRef<OlLayerVector<any>>();
-  const [ mapId ] = useState(_uniqueId('map_'));
+  const [mapId] = useState(_uniqueId('map_'));
   const data = useGeoStylerData();
 
   const getSampleGeomFromSymbolizer = useCallback(() => {
@@ -81,10 +81,10 @@ export const OlRenderer: React.FC<OlRendererProps> = ({
       case 'Fill':
         return new OlGeomPolygon([[
           [7.1031761169433585, 50.734268655851345],
-          [7.109270095825195, 50.734268655851345, ],
+          [7.109270095825195, 50.734268655851345,],
           [7.109270095825195, 50.73824770380063],
           [7.1031761169433585, 50.73824770380063],
-          [7.1031761169433585, 50.734268655851345, ]
+          [7.1031761169433585, 50.734268655851345,]
         ]]);
       case 'Line':
         return new OlGeomLineString([
@@ -131,6 +131,10 @@ export const OlRenderer: React.FC<OlRendererProps> = ({
         projection: 'EPSG:4326'
       })
     });
+    return () => {
+      map.current.setTarget(null); // 移除地图与 DOM 的绑定
+      map.current = null;
+    };
   }, [mapId]);
 
   useEffect(() => {
@@ -147,7 +151,7 @@ export const OlRenderer: React.FC<OlRendererProps> = ({
    *
    * @param {Symbolizer[]} newSymbolizers The symbolizers holding the style to apply
    */
-  const applySymbolizers = async(newSymbolizers: Symbolizer[]) => {
+  const applySymbolizers = async (newSymbolizers: Symbolizer[]) => {
     if (!newSymbolizers) {
       return undefined;
     }
